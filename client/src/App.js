@@ -1,22 +1,17 @@
 import { RootRoute } from "./routes";
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import "./App.css";
-import useStore from "./store"
+import {useStore} from "./store"
 
 
 function App() {
-
-  const [isLoaded, setIsLoaded] = useState(false);
-  const fetchBreweries = useStore((state) => state.fetchBreweries);
+  const { fetchBreweries, isLoaded } = useStore((state) => ({ fetchBreweries: state.fetchBreweries, breweries: state.breweries }));
 
   useEffect(() => {
-
-    if(!isLoaded) {
+    if (!isLoaded) {
       fetchBreweries();
-      setIsLoaded(true);
     }
-
-  });
+  }, [isLoaded]);
 
   return (
     <div className="App">

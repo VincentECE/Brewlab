@@ -1,17 +1,34 @@
+import { useNavigate } from "react-router-dom"
+import { useStore } from "../../store"
 
-export function OverviewTile({ brewery }) {
-  const {
-    name,
+export const OverviewTile = ({ brewery }) => {
+  const setBrewery = useStore((state) => state.setBrewery)
+  const navigate = useNavigate();
+
+  const { name,
     brewery_type,
     street,
     city,
     postal_code,
     website_url,
+    id,
   } = brewery;
 
-  return(
+  const showDetailBrewery = () => {
+    setBrewery(brewery);
+    navigate(`details/${id}`);
+  }
+
+  return (
     <div className="overview-tile">
-      <p>{name}</p>
+      <div onClick={showDetailBrewery}>{name}</div>
+      <p>{brewery_type}</p>
+      <p>{street}</p>
+      <p>{city}</p>
+      <p>{postal_code}</p>
+      <a href={website_url} target="_blank" rel="noreferrer">
+        {website_url}
+      </a>
     </div>
   );
 }
