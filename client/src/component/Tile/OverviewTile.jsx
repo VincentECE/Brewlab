@@ -1,8 +1,8 @@
-import { useNavigate } from "react-router-dom"
-import { useStore } from "../../store"
+import { useNavigate } from "react-router-dom";
+import { useOpenBrewery } from "../../store";
 
 export const OverviewTile = ({ brewery }) => {
-  const setBrewery = useStore((state) => state.setBrewery)
+  const setBrewery = useOpenBrewery((state) => state.setBrewery)
   const navigate = useNavigate();
 
   const { name,
@@ -21,7 +21,7 @@ export const OverviewTile = ({ brewery }) => {
 
   return (
     <div className="overview-tile">
-      <div onClick={showDetailBrewery}>{name}</div>
+      <span onClick={showDetailBrewery}>{name}</span>
       <p>{brewery_type}</p>
       <p>{street}</p>
       <p>{city}</p>
