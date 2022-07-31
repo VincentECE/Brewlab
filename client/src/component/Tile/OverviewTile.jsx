@@ -1,8 +1,8 @@
-import { useNavigate } from "react-router-dom"
-import { useStore } from "../../store"
+import { useNavigate } from "react-router-dom";
+import { useOpenBrewery } from "../../store";
 
 export const OverviewTile = ({ brewery }) => {
-  const setBrewery = useStore((state) => state.setBrewery)
+  const setBrewery = useOpenBrewery((state) => state.setBrewery)
   const navigate = useNavigate();
 
   const { name,

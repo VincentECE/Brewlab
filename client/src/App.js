@@ -1,10 +1,10 @@
 import { RootRoute } from "./routes";
 import { useEffect } from 'react';
 import "./App.css";
-import {useStore} from "./store"
+import { useOpenBrewery } from "./store"
 
 function App() {
-  const { fetchBreweries, isLoaded } = useStore((state) => ({ fetchBreweries: state.fetchBreweries, breweries: state.breweries }));
+  const { fetchBreweries, isLoaded } = useOpenBrewery((state) => ({ fetchBreweries: state.fetchBreweries, breweries: state.breweries }));
 
   useEffect(() => {
     if (!isLoaded) {

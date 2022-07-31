@@ -16,3 +16,10 @@
   border-bottom-style: solid;
   background-color: var(--pumpkin-orange);
 }
+
+.map {
+  display: flex;
+  position: center;
+  height: '50vh';
+  width: '70%'
+}

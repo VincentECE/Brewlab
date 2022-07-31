@@ -1,7 +1,7 @@
 import create from 'zustand';
 import { getBreweries } from '../api';
 
-export const useStore = create((set, get) => ({
+export const useOpenBrewery = create((set, get) => ({
   breweries: [],
   isLoaded: false,
   brewery: {},
