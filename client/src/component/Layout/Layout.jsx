@@ -1,17 +1,11 @@
-import useStore from '../../store';
-import { v4 as uuid } from "uuid";
-import { OverviewTile } from "../Tile";
-
-export function Layout() {
-  const breweries = useStore(state => state.breweries);
-
-  return breweries.length > 0 ? (
+import { Link } from "react-router-dom"
+export function Layout(props) {
+  return (
     <>
-      {breweries.map((brewery) => {
-        <div key={uuid()}> Blah </div>
-      })}
+    <nav>
+      <Link to="/">Home</Link>
+    </nav>
+    {props.children}
     </>
-  ) : (
-    <>No breweries to show yet..</>
-  );
+  )
 }

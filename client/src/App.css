@@ -1,16 +1,15 @@
+:root {
+  --pumpkin-orange: #f2a848;
+  --latte-orange: #f2d8b3;
+  --blush-pink: #d1a584;
+  --salmon: #b07255;
+  --mauve-pink: #904027;
+  --slate-gray: #2e3d39;
+}
+
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  background-color: var(--latte-orange);
 }
 
 .App-header {
@@ -28,11 +27,8 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.overview-tile {
+  margin: 25px 50px 75px 100px;
+  border-bottom-style: solid;
+  background-color: var(--pumpkin-orange);
 }
