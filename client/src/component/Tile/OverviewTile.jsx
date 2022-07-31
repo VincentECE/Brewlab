@@ -21,7 +21,7 @@ export const OverviewTile = ({ brewery }) => {
 
   return (
     <div className="overview-tile">
-      <div onClick={showDetailBrewery}>{name}</div>
+      <span onClick={showDetailBrewery}>{name}</span>
       <p>{brewery_type}</p>
       <p>{street}</p>
       <p>{city}</p>

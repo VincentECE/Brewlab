@@ -3,7 +3,6 @@ import { useEffect } from 'react';
 import "./App.css";
 import {useStore} from "./store"
 
-
 function App() {
   const { fetchBreweries, isLoaded } = useStore((state) => ({ fetchBreweries: state.fetchBreweries, breweries: state.breweries }));
 
