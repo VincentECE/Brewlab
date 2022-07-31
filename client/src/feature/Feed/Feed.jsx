@@ -16,6 +16,6 @@ export const Feed = () => {
       })}
     </Layout>
   ) : (
-    <span>Sorry! Mars doesn't have a brewery yet and so doesn't this city.</span>
+    <span>Sorry! Mars has not been conquered yet, and this city hasn't been either. Come back when it does and we'll cheers together 🍻</span>
   );
 };

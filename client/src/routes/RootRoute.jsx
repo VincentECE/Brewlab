@@ -10,7 +10,7 @@ export function RootRoute() {
     <BrowserRouter>
       <Routes>
         <Route exact path="/" element={<Feed/>} />
-        <Route exact path="details" element={<Details />} />
+        <Route exact path="details/:breweryId" element={<Details />} />
       </Routes>
     </BrowserRouter>
   );

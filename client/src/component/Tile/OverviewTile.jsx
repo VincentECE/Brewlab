@@ -1,21 +1,27 @@
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { useStore } from "../../store"
 
-export function OverviewTile({ brewery }) {
-
+export const OverviewTile = ({ brewery }) => {
   const setBrewery = useStore((state) => state.setBrewery)
+  const navigate = useNavigate();
 
   const { name,
     brewery_type,
     street,
     city,
     postal_code,
-    website_url
+    website_url,
+    id,
   } = brewery;
+
+  const showDetailBrewery = () => {
+    setBrewery(brewery);
+    navigate(`details/${id}`);
+  }
 
   return (
     <div className="overview-tile">
-      <Link to='details' onClick={()=>{setBrewery(brewery)}}>{name}</Link>
+      <div onClick={showDetailBrewery}>{name}</div>
       <p>{brewery_type}</p>
       <p>{street}</p>
       <p>{city}</p>
