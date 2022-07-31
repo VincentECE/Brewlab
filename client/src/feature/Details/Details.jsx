@@ -10,7 +10,6 @@ export const Details = () => {
     name,
     brewery_type,
     street,
-    address_2,
     city,
     state,
     postal_code,
@@ -25,6 +24,7 @@ export const Details = () => {
       <p>{brewery_type}</p>
       <p>{street}</p>
       <p>{city}</p>
+      <p>{state}</p>
       <p>{postal_code}</p>
       <p>{phone}</p>
       <a href={website_url} target="_blank" rel="noreferrer">

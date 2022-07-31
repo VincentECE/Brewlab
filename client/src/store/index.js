@@ -1,1 +1,1 @@
-export * from "./useOpenBrewery.js"
+export * from './useOpenBrewery';
