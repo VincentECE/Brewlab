@@ -8,6 +8,7 @@ export const Feed = () => {
   return breweries.length > 0 ? (
     <Layout>
       {breweries.map((brewery) => {
+
         return (
           <div key={uuid()}>
             <OverviewTile brewery={ brewery } />

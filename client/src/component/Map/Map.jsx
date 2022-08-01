@@ -12,9 +12,6 @@ export function Map(){
     longitude
   } = useOpenBrewery((state) => state.brewery);
 
-  console.log('latitude', latitude, 'parsed', parseFloat(latitude))
-  console.log('longitude', longitude, 'parsed', parseFloat(longitude))
-
     const latitudeFloat =  parseFloat(latitude);
     const longitudeFloat = parseFloat(longitude);
 
@@ -43,4 +40,3 @@ export function Map(){
     </div>
   ): (<></>);
 }
-

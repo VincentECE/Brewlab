@@ -20,8 +20,8 @@ export const OverviewTile = ({ brewery }) => {
   }
 
   return (
-    <div className="overview-tile">
-      <span onClick={showDetailBrewery}>{name}</span>
+    <div onClick={showDetailBrewery} className="tile container-padding-1 layout-flex-column-spacing-1 container-flex-column-1">
+      <span >{name}</span>
       <p>{brewery_type}</p>
       <p>{street}</p>
       <p>{city}</p>

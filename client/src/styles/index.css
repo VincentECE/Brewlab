@@ -1,0 +1,10 @@
+@import url("./colors.css");
+@import url("./spacings.css");
+@import url("./typography.css");
+@import url("./component.css");
+
+.App {
+  text-align: center;
+  font-family: var(--regular-font-family);
+}
+
