@@ -4,13 +4,19 @@ import "./styles/index.css";
 import { useOpenBrewery } from "./store"
 
 function App() {
-  const { fetchBreweries, isLoaded } = useOpenBrewery((state) => ({ fetchBreweries: state.fetchBreweries, breweries: state.breweries }));
+  const {
+    fetchBreweries,
+    breweriesIsLoaded
+    } = useOpenBrewery((state) => ({
+      fetchBreweries: state.fetchBreweries,
+      breweries: state.breweries
+    }));
 
   useEffect(() => {
-    if (!isLoaded) {
+    if (!breweriesIsLoaded) {
       fetchBreweries();
     }
-  }, [isLoaded]);
+  }, [breweriesIsLoaded]);
 
   return (
     <div className="App">

@@ -3,16 +3,17 @@ import { getBreweries, getGeoCode } from "../api";
 
 export const useOpenBrewery = create((set, get) => ({
   breweries: [],
-  isLoaded: false,
+  breweriesIsLoaded: false,
   brewery: {},
+  breweryIsLoaded: false,
 
   fetchBreweries: async (page) => {
     try {
       const { data } = await getBreweries(page);
-      set({ breweries: data, isLoaded: true });
+      set({ breweries: data, breweriesIsLoaded: true });
     } catch (err) {
-      set({ isLoaded: true });
-      console.log("Something went wrong while fetching data ", err);
+      set({ breweriesIsLoaded: true });
+      console.error(err.message);
     }
   },
 
@@ -26,21 +27,29 @@ export const useOpenBrewery = create((set, get) => ({
     //openBrewery returns null for some lat/longs.
     //this gets geocode data from google geocodingAPI if needed
     if(longitude === null || latitude === null) {
-      const { data: { results } } = await getGeoCode(street, city, state);
-      const { lat, lng } = results?.[0].geometry.location;
 
-      brewery.latitude = lat;
-      brewery.longitude = lng;
+      try{
+        const { data: { results } } = await getGeoCode(street, city, state);
+        if(results.length === 0) throw new Error('No Geolocation data available');
 
-      set({ brewery });
+        const { lat, lng } = results?.[0]?.geometry.location;
 
-    } else {
-      set({ brewery });
+        brewery.latitude = lat;
+        brewery.longitude = lng;
+
+      } catch(err) {
+        console.error(err.message);
+      }
+
     }
+
+    set({ brewery });
+    set({breweryIsLoaded: true});
 
   },
 
   clearBrewery: () => {
     set({brewery: {}});
+    set({breweryIsLoaded: false});
   }
 }));
