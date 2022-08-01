@@ -1,6 +1,6 @@
 import { RootRoute } from "./routes";
 import { useEffect } from 'react';
-import "./App.css";
+import "./styles/index.css";
 import { useOpenBrewery } from "./store"
 
 function App() {

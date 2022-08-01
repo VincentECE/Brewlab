@@ -19,7 +19,7 @@ export const Details = () => {
 
   return (
     <Layout>
-      <div className="overview-tile">
+      <div className="details-tile">
       <h3>{name}</h3>
       <p>{brewery_type}</p>
       <p>{street}</p>

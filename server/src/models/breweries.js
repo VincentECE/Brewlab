@@ -1,14 +1,8 @@
 const mongoose = require('mongoose');
 
 const breweriesSchema = new mongoose.Schema({
-  id: {
-    type: String,
-    required: true,
-  },
-  name: {
-    type: String,
-    required: true,
-  },
+  id: String,
+  name: String,
   brewery_type: String,
   street: String,
   address_2: String,

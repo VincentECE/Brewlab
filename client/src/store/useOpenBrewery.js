@@ -15,6 +15,7 @@ export const useOpenBrewery = create((set, get) => ({
       console.log("Something went wrong while fetching data ", err);
     }
   },
+
   setBrewery: async (brewery) => {
     const { longitude,
       latitude,
@@ -22,9 +23,6 @@ export const useOpenBrewery = create((set, get) => ({
       city,
       state
     } = brewery;
-
-    console.log('brwery before', brewery)
-
     //openBrewery returns null for some lat/longs.
     //this gets geocode data from google geocodingAPI if needed
     if(longitude === null || latitude === null) {
@@ -41,4 +39,8 @@ export const useOpenBrewery = create((set, get) => ({
     }
 
   },
+
+  clearBrewery: () => {
+    set({brewery: {}});
+  }
 }));
