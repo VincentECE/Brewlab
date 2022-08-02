@@ -3,7 +3,7 @@ import { Layout } from '../../component/Layout';
 import { useOpenBrewery } from '../../store';
 import { Map } from '../../component/Map';
 import { useParams } from 'react-router-dom';
-// import { OverviewTile } from '../../component';
+import { DetailsTile } from '../../component/Tile';
 import Tile from '@mui/material/Card';
 
 export const Details = () => {
@@ -37,33 +37,10 @@ export const Details = () => {
     }
   }, [clearBrewery, setBrewery]);
 
-  const {
-    name,
-    brewery_type,
-    street,
-    city,
-    state,
-    postal_code,
-    website_url,
-    phone,
-    nameColor,
-  } = brewery;
-
   return Object.keys(brewery).length ? (
     <Layout>
       <div className="tile container-padding-1 layout-flex-column-spacing-1 container-flex-column-1">
-      <Tile className="details-tile">
-        <p className="brewery-type">{brewery_type}</p>
-        <h3 className="tile-name" style={nameColor}>{name}</h3>
-        <p>{street}</p>
-        <p>{`${city}, ${state}`}</p>
-        <p>{postal_code}</p>
-        <p>{phone}</p>
-        <a href={website_url} target="_blank" rel="noreferrer">
-          {website_url}
-        </a>
-
-    </Tile>
+      <DetailsTile/>
         <Map/>
       </div>
     </Layout>

@@ -1,6 +1,7 @@
 import { useOpenBrewery } from '../../store';
 import Tile from '@mui/material/Card';
 
+
 export const DetailsTile = () => {
 
   const {
@@ -32,7 +33,6 @@ export const DetailsTile = () => {
         <a href={website_url} target="_blank" rel="noreferrer">
           {website_url}
         </a>
-
     </Tile>
   )
 }
