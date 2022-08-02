@@ -1,16 +1,42 @@
 .tile {
-  background-color: var(--salmon);
+  background-color: var(--white);
+  border-style: solid;
+  border-color: black;
   height:  auto;
   width: 350px;
 }
 
 .tile:hover {
-  background-color: var(--blush-pink);
+  box-shadow: 5px 5px 5px 7px var(--pistachio);
   cursor: pointer;
 }
 
+/* cowboy coding starts here */
+.brewery-type {
+  position: absolute;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px black;
+  background-color: var(--white);
+}
+
+.tile-name {
+  background-color: var(--sky-blue);
+  border-style: solid;
+  border-color: black;
+}
+
+/* cowboy coding ends here */
+
 .details-tile {
-  background-color: var(--pumpkin-orange);
+  background-color: var(--white);
+  box-shadow: 5px 7px 7px 5px var(--pistachio);
+  border-style: solid;
+  border-color: black;
+  height:  auto;
+  width: 350px;
 }
 
 .map {
@@ -22,5 +48,5 @@
 
 .navbar {
   display: flex;
-  background-color: var(--pumpkin-orange);
+  background-color: var(--pistachio);
 }

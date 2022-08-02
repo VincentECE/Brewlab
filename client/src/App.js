@@ -2,6 +2,7 @@ import { RootRoute } from './routes';
 import { useEffect } from 'react';
 import './styles/index.css';
 import { useOpenBrewery } from './store';
+import Skeleton from '@mui/material/Skeleton';
 
 function App() {
 
@@ -25,7 +26,9 @@ function App() {
     <div className="App">
      <RootRoute />
     </div>
-  ) :(<></>);
+  ) : (
+  <Skeleton variant="rectangular" width={210} height={118}/>
+  );
 }
 
 export default App;
