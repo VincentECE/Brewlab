@@ -6,7 +6,7 @@ require('./db');
 
 app.use(crossOrigin);
 app.use(express.json());
-app.use(express.urlencoded());
+app.use(express.urlencoded({extended: true}));
 
 app.use('/', userRoutes);
 

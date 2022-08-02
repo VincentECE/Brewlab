@@ -2,7 +2,9 @@ import { useEffect } from "react"
 import { Layout } from '../../component/Layout';
 import { useOpenBrewery } from '../../store';
 import { Map } from '../../component/Map';
-import { useParams } from "react-router-dom"
+import { useParams } from 'react-router-dom';
+// import { OverviewTile } from '../../component';
+import Tile from '@mui/material/Card';
 
 export const Details = () => {
   const { breweryId } = useParams();
@@ -11,32 +13,29 @@ export const Details = () => {
     brewery,
     clearBrewery,
     breweryIsLoaded,
-    breweries,
-    setBrewery
+    setBrewery,
    } = useOpenBrewery((state) => ({
     brewery: state.brewery,
     clearBrewery: state.clearBrewery,
     breweryIsLoaded: state.breweryIsLoaded,
-    breweries: state.breweries,
-    setBrewery: state.setBrewery
+    setBrewery: state.setBrewery,
   }));
 
   useEffect(() => {
+    console.log('Details rendered');
 
-    if(breweryIsLoaded){
-      return () => {
-        clearBrewery();
-      }
-    } else {
-      for(let i = 0; i < breweries.length; i++) {
-        const currentBrewery = breweries[i];
+    console.log('breweryIsLoaded: ', breweryIsLoaded);
 
-        if(currentBrewery.id === breweryId) {
-          setBrewery(currentBrewery);
-        }
-      }
+    if(!breweryIsLoaded || breweryId !== brewery?.id) {
+      console.log('set brewery from Details')
+      setBrewery(breweryId);
     }
-  })
+
+    return () => {
+      console.log('details useeffect return')
+        clearBrewery();
+    }
+  }, [clearBrewery, setBrewery]);
 
   const {
     name,
@@ -47,23 +46,26 @@ export const Details = () => {
     postal_code,
     website_url,
     phone,
+    nameColor,
   } = brewery;
 
-  return (
+  return Object.keys(brewery).length ? (
     <Layout>
-      <div className="details-tile">
-      <h3>{name}</h3>
-      <p>{brewery_type}</p>
-      <p>{street}</p>
-      <p>{city}</p>
-      <p>{state}</p>
-      <p>{postal_code}</p>
-      <p>{phone}</p>
-      <a href={website_url} target="_blank" rel="noreferrer">
-        {website_url}
-      </a>
-      <Map/>
-    </div>
+      <div className="tile container-padding-1 layout-flex-column-spacing-1 container-flex-column-1">
+      <Tile className="details-tile">
+        <p className="brewery-type">{brewery_type}</p>
+        <h3 className="tile-name" style={nameColor}>{name}</h3>
+        <p>{street}</p>
+        <p>{`${city}, ${state}`}</p>
+        <p>{postal_code}</p>
+        <p>{phone}</p>
+        <a href={website_url} target="_blank" rel="noreferrer">
+          {website_url}
+        </a>
+
+    </Tile>
+        <Map/>
+      </div>
     </Layout>
-  )
+  ) : (<></>)
 }
