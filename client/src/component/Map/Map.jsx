@@ -15,6 +15,8 @@ export function Map(){
     const latitudeFloat =  parseFloat(latitude);
     const longitudeFloat = parseFloat(longitude);
 
+    console.log('latitudeFloat:', latitudeFloat)
+
   const defaultProps = {
     center: {
       lat: latitudeFloat,

@@ -17,20 +17,32 @@ export const useOpenBrewery = create((set, get) => ({
     }
   },
 
-  setBrewery: async (brewery) => {
-    const { longitude,
-      latitude,
-      street,
-      city,
-      state
-    } = brewery;
+  setBrewery: async (breweryId = '' ) => {
+   const breweries = await get().breweries;
+   let brewery;
+
+   for(let i  = 0; i < breweries.length; i++) {
+    const currentBrewery = breweries[i];
+
+    if(currentBrewery?.id === breweryId) {
+      brewery = currentBrewery;
+    }
+   }
+
     //openBrewery returns null for some lat/longs.
     //this gets geocode data from google geocodingAPI if needed
-    if(longitude === null || latitude === null) {
+    if(brewery?.latitude === null && brewery?.longitude === null) {
+
+      const {
+        street,
+        city,
+        state
+      } = brewery;
 
       try{
+        console.log('getting geocode');
         const { data: { results } } = await getGeoCode(street, city, state);
-        if(results.length === 0) throw new Error('No Geolocation data available');
+        if(results.length === 0) throw new Error('No Geocode data available');
 
         const { lat, lng } = results?.[0]?.geometry.location;
 
@@ -47,7 +59,6 @@ export const useOpenBrewery = create((set, get) => ({
     set({breweryIsLoaded: true});
 
   },
-
   clearBrewery: () => {
     set({brewery: {}});
     set({breweryIsLoaded: false});

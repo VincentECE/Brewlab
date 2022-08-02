@@ -2,8 +2,8 @@ import { useNavigate } from "react-router-dom";
 import { useOpenBrewery } from "../../store";
 
 export const OverviewTile = ({ brewery }) => {
-  const setBrewery = useOpenBrewery((state) => state.setBrewery)
   const navigate = useNavigate();
+  const setBrewery = useOpenBrewery((state) => state.setBrewery);
 
   const { name,
     brewery_type,
@@ -15,7 +15,6 @@ export const OverviewTile = ({ brewery }) => {
   } = brewery;
 
   const showDetailBrewery = () => {
-    setBrewery(brewery);
     navigate(`details/${id}`);
   }
 

@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import { useOpenBrewery } from '../../store';
 import { OverviewTile } from '../../component/Tile';
 import { v4 as uuid } from 'uuid';
@@ -9,11 +10,13 @@ export const Feed = () => {
   return breweries.length > 0 ? (
     <Layout>
       {breweries.map((brewery) => {
-        return (
-          <div key={uuid()}>
-            <OverviewTile brewery={ brewery } />
-          </div>
-        );
+        if(brewery?.street !== null) {
+          return (
+            <div key={uuid()}>
+              <OverviewTile brewery={ brewery } />
+            </div>
+          );
+        }
       })}
     </Layout>
   ) : (

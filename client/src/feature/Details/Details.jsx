@@ -2,7 +2,7 @@ import { useEffect } from "react"
 import { Layout } from '../../component/Layout';
 import { useOpenBrewery } from '../../store';
 import { Map } from '../../component/Map';
-import { useParams } from "react-router-dom"
+import { useParams } from 'react-router-dom';
 
 export const Details = () => {
   const { breweryId } = useParams();
@@ -12,31 +12,38 @@ export const Details = () => {
     clearBrewery,
     breweryIsLoaded,
     breweries,
+    breweriesIsLoaded,
     setBrewery
    } = useOpenBrewery((state) => ({
     brewery: state.brewery,
     clearBrewery: state.clearBrewery,
     breweryIsLoaded: state.breweryIsLoaded,
     breweries: state.breweries,
-    setBrewery: state.setBrewery
+    setBrewery: state.setBrewery,
+    breweriesIsLoaded: state.breweriesIsLoaded
   }));
 
   useEffect(() => {
+    console.log('Details rendered');
 
-    if(breweryIsLoaded){
-      return () => {
-        clearBrewery();
-      }
-    } else {
-      for(let i = 0; i < breweries.length; i++) {
-        const currentBrewery = breweries[i];
+    console.log('breweryIsLoaded: ', breweryIsLoaded);
 
-        if(currentBrewery.id === breweryId) {
-          setBrewery(currentBrewery);
-        }
-      }
+    if(!breweryIsLoaded || breweryId !== brewery?.id) {
+      console.log('set brewery from Details')
+      setBrewery(breweryId);
     }
-  })
+
+    // if(!breweryIsLoaded && breweriesIsLoaded) {
+    //   if(breweryId) {
+    //     console.log('inside Details')
+    //     setBrewery(breweryId);
+    //   }
+    // }
+    return () => {
+      console.log('details useeffect return')
+        clearBrewery();
+    }
+  }, [clearBrewery, setBrewery]);
 
   const {
     name,
@@ -49,8 +56,9 @@ export const Details = () => {
     phone,
   } = brewery;
 
-  return (
+  return Object.keys(brewery).length ? (
     <Layout>
+      <span></span>
       <div className="details-tile">
       <h3>{name}</h3>
       <p>{brewery_type}</p>
@@ -65,5 +73,5 @@ export const Details = () => {
       <Map/>
     </div>
     </Layout>
-  )
+  ) : (<></>)
 }
