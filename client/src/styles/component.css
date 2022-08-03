@@ -20,6 +20,12 @@
   cursor: pointer;
 }
 
+.tile-skeleton {
+  align-self: center;
+  min-height: 145px;
+  width: 100%;
+}
+
 .badge {
   position: absolute;
   text-align: center;
@@ -56,4 +62,3 @@
   flex-direction: row;
   column-gap: 15px;
 }
-

@@ -26,7 +26,7 @@ const App = () => {
      <RootRoute />
     </div>
   ) : (
-  <Skeleton variant="rectangular" width={210} height={118}/>
+      <Skeleton className="tile-skeleton" variant="rectangular"/>
   );
 }
 
