@@ -47,7 +47,6 @@ export const useOpenBrewery = create((set, get) => ({
       } = brewery;
 
       try{
-        console.log('getting geocode');
         const { data: { results } } = await getGeoCode(street, city, state);
         if(results.length === 0) throw new Error('No Geocode data available');
 
