@@ -1,8 +1,6 @@
-import { useEffect } from "react"
 import { useOpenBrewery } from '../../store';
-import { OverviewTile } from '../../component/Tile';
+import { Tile, Layout } from '../../component';
 import { v4 as uuid } from 'uuid';
-import { Layout } from '../../component/Layout';
 
 export const Feed = () => {
   const breweries = useOpenBrewery((state) => state.breweries);
@@ -13,7 +11,7 @@ export const Feed = () => {
         if(brewery?.street !== null) {
           return (
             <div key={uuid()}>
-              <OverviewTile brewery={ brewery } />
+              <Tile brewery={brewery} />
             </div>
           );
         }

@@ -3,9 +3,9 @@ import {
   Routes,
   Route,
 } from 'react-router-dom';
-import { Feed, Details } from '../feature'
+import { Feed, Details } from '../feature';
 
-export function RootRoute() {
+export const RootRoute = () => {
   return(
     <BrowserRouter>
       <Routes>

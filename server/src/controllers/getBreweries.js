@@ -1,6 +1,6 @@
 const { Breweries } = require('../models');
 
-async function getBreweries() {
+const getBreweries = async () => {
   try{
     const breweries = await Breweries.find({}).select('-_id');
     return breweries;

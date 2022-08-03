@@ -1,1 +1,1 @@
-export * from "./RootRoute.jsx";
+export * from './RootRoute.jsx';

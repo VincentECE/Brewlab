@@ -1,14 +1,18 @@
 import { Link } from 'react-router-dom';
-import { ReactComponent as Logo } from '../../utils/images/logo3.svg';
+import { ReactComponent as Logo } from '../../utils/images/logo.svg';
 
-export function Layout(props) {
+export const Layout = (props) => {
   return (
     <>
     <nav className='navbar layout-padding-1'>
-      <Link to="/">
-        <Logo/>
-        <h1 className="header1">Brew Lab</h1>
-      </Link>
+      <div className="nav-logo-container">
+        <span>
+          <Logo width="50px" height="auto" />
+        </span>
+        <Link to="/" className="link">
+          <h1 className="title-1">Brew Lab</h1>
+        </Link>
+      </div>
     </nav>
     <div className="layout-padding-1 layout-flex-column-spacing-1">
       {props.children}

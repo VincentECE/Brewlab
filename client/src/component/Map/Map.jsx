@@ -1,11 +1,9 @@
-import React from "react";
 import GoogleMapReact from 'google-map-react';
 import { MapMarker } from './index.js';
 import { useOpenBrewery } from '../../store';
-import Tile from '@mui/material/Card';
 
 
-export function Map(){
+export const Map = () => {
 
   const {
     name,
@@ -15,8 +13,6 @@ export function Map(){
 
     const latitudeFloat =  parseFloat(latitude);
     const longitudeFloat = parseFloat(longitude);
-
-    console.log('latitudeFloat:', latitudeFloat)
 
   const defaultProps = {
     center: {
@@ -28,21 +24,23 @@ export function Map(){
 
   return latitudeFloat && longitudeFloat ? (
     // Important! Always set the container height explicitly
-    <Tile>
-      <h3 className="tile-name">Map</h3>
-      <div className='map' style={{ height: '50vh', width: '70%' }}>
-        <GoogleMapReact
-          bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAPS_KEY }}
-          defaultCenter={defaultProps.center}
-          defaultZoom={defaultProps.zoom}
-        >
-          <MapMarker
-            lat={latitudeFloat}
-            lng={longitudeFloat}
-            text={name}
-          />
-        </GoogleMapReact>
-      </div>
-    </Tile>
+    <div className="card container-padding-1">
+        <div className="header">
+          <h1 className="header-1">Map</h1>
+        </div>
+        <div className="map-container">
+          <GoogleMapReact
+            bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAPS_KEY }}
+            defaultCenter={defaultProps.center}
+            defaultZoom={defaultProps.zoom}
+          >
+            <MapMarker
+              lat={latitudeFloat}
+              lng={longitudeFloat}
+              text={name}
+            />
+          </GoogleMapReact>
+        </div>
+    </div>
   ): (<></>);
 }
