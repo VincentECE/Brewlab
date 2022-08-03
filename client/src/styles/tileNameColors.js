@@ -1,4 +1,5 @@
 //color codes for card names
+
 export const tileNameColors = [
   {backgroundColor: "#8B4513"},
   {backgroundColor: "#87CEEB"},
