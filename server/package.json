@@ -6,6 +6,7 @@
   },
   "scripts": {
     "start": "nodemon ./src",
+    "start-prod": "node ./src",
     "db-loader": "node db-loader"
   },
   "devDependencies": {
