@@ -3,7 +3,6 @@ import axios from 'axios';
 // COMMENTS ARE INTENTIONALLY LEFT HERE TO EASILY SWITCH BETWEEN GETTING DATA FROM THE API OR BACKEND
 
 // The following requests data from the backend
-
 const url = 'http://localhost:3001/listBreweries';
 
 export const getBreweries = (page = 1) => {
