@@ -1,2 +1,1 @@
-export * from './OverviewTile.jsx';
-export * from './DetailsTile.jsx';
+export * from './Tile.jsx';

@@ -1,1 +1,1 @@
-export * from "./Feed.jsx"
+export * from './Feed.jsx';

@@ -4,7 +4,7 @@ import './styles/index.css';
 import { useOpenBrewery } from './store';
 import Skeleton from '@mui/material/Skeleton';
 
-function App() {
+const App = () => {
 
   const {
     fetchBreweries,
@@ -17,7 +17,6 @@ function App() {
   useEffect(() => {
 
     if (!breweriesIsLoaded) {
-      console.log('Fetching breweries from App');
       fetchBreweries();
     }
   }, [breweriesIsLoaded, fetchBreweries],);

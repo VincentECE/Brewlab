@@ -6,12 +6,23 @@
   --header-font-family: 'DM Serif Display', serif;
 }
 
-.header1 {
+.title-1 {
   font-size: 32px;
-  line-height: 38px;
+  line-height: 36px;
+}
+
+.header-1 {
+  font-size: 22px;
+  line-height: 26px;
 }
 
 .paragraph {
   font-size: 16px;
   line-height: 18px;
 }
+
+.link, .link:visited, .link.hover, .link.active {
+  text-decoration: none;
+  color: inherit;
+}
+
