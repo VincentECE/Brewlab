@@ -1,5 +1,6 @@
 const userRoutes = require('express').Router();
 const { getBreweries } = require('../controllers');
+const path = require('path');
 
 userRoutes.get('/listBreweries', (req, res) => {
 
@@ -10,6 +11,12 @@ userRoutes.get('/listBreweries', (req, res) => {
   .catch((err)=>{
     res.send(err);
   })
+
+});
+
+userRoutes.get('*', (req, res) => {
+
+  res.sendFile(path.resolve(__dirname, '../../../client/build', 'index.html'));
 
 });
 
