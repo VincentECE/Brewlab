@@ -1,6 +1,6 @@
 # Brewlab
 
-## Run the application
+### Run the application
 
 ###### cd into client folder *** cd client ***
 ###### create static files *** npm run build ***
