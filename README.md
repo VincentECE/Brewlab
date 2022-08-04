@@ -6,5 +6,5 @@
 #### create static files `npm run build`
 #### move up one folder `cd ..`
 #### install dependencies `npm i`
-#### load database `npm run database`
+#### load data into database `npm run db-loader`
 #### start server `npm run start-prod`
