@@ -1,6 +1,5 @@
 # Brewlab
 
-## Hey there!
 This is a full stack application that uses OpenBrewery API to display a list of breweries in Austin, TX. The purpose of this app is to demonstrate a small application with scalability and performance in mind.
 
 ## LightHouse Performance on AWS
