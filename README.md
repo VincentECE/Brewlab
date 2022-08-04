@@ -1,5 +1,4 @@
-# Brewlab
-
+# Brewopoly
 This is a full stack application that uses OpenBrewery API to display a list of breweries in Austin, TX. The purpose of this app is to demonstrate a small application with scalability and performance in mind.
 ![Screen Shot 2022-08-04 at 9 56 42 AM](https://user-images.githubusercontent.com/89487780/182879369-36b77734-dbfa-4a39-898a-a09777d9afd6.png)
 
